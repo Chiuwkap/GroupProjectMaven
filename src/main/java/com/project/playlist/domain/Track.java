@@ -2,7 +2,7 @@ package com.project.playlist.domain;
 
 import java.io.Serializable;
 
-public class Tracks implements Serializable{
+public class Track implements Serializable{
 
 	private String artist;
 	private String title;
@@ -10,7 +10,7 @@ public class Tracks implements Serializable{
 	private String album;
 	private String length;
 		
-	public Tracks(String artist, String title, String genre, String album, String length) {
+	public Track(String artist, String title, String genre, String album, String length) {
 		this.artist = artist;
 		this.title = title;
 		this.genre = genre;
