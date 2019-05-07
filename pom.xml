@@ -38,6 +38,20 @@
         <groupId>org.wildfly.plugins</groupId>
         <artifactId>wildfly-maven-plugin</artifactId>
         <version>1.2.0.Final</version>
+        <executions>
+          <execution>
+            <id>deploy-mysql</id>
+            <phase>install</phase>
+            <goals>
+              <goal>deploy-artifact</goal>
+            </goals>
+            <configuration>
+              <groupId>mysql</groupId>
+              <artifactId>mysql-connector-java</artifactId>
+              <name>mysql-connector-java-8.0.15.jar</name>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
