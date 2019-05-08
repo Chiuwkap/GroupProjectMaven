@@ -12,10 +12,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-     <groupId>mysql</groupId>
-     <artifactId>mysql-connector-java</artifactId>
-     <version>8.0.15</version>
-     <scope>compile</scope>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.47</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
   <build>
@@ -48,7 +48,50 @@
             <configuration>
               <groupId>mysql</groupId>
               <artifactId>mysql-connector-java</artifactId>
-              <name>mysql-connector-java-8.0.15.jar</name>
+              <name>mysql-connector-java-5.1.47.jar</name>
+            </configuration>
+          </execution>
+          <execution>
+            <id>add-datasource</id>
+            <phase>install</phase>
+            <goals>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <address>subsystem=datasources,data-source=java:/playlist</address>
+              <resources>
+                <resource>
+                  <properties>
+                    <jndi-name>java:/playlist</jndi-name>
+                    <enabled>true</enabled>
+                    <driver-name>mysql-connector-java-5.1.47.jar</driver-name>
+                    <connection-url>jdbc:mysql://localhost:3306/playlist</connection-url>
+                    <user-name>root</user-name>
+                    <password>Losen123</password>
+                  </properties>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy-artifact</goal>
+            </goals>
+            <configuration>
+              <groupId>Playlist</groupId>
+              <artifactId>Playlist</artifactId>
+              <name>Playlist.war</name>
+            </configuration>
+          </execution>
+          <execution>
+            <id>undeploy</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>undeploy</goal>
+            </goals>
+            <configuration>
+              <ignoreMissingDeployment>true</ignoreMissingDeployment>
             </configuration>
           </execution>
         </executions>
