@@ -11,6 +11,8 @@ public class Track implements Serializable{
 
 	@Id
 	@GeneratedValue
+	private int id;
+	
 	private String artist;
 	private String title;
 	private String genre;
