@@ -17,6 +17,7 @@ public class TrackResource {
   private PlaylistServiceLocal service;
 
   @GET
+  @Produces ({"application/XML", "application/JSON"})
   public List<Track> getAllTracks() {
     return service.getAllTracks();
   }
