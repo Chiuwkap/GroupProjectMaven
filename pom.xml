@@ -70,7 +70,7 @@
                     <jndi-name>java:/playlist</jndi-name>
                     <enabled>true</enabled>
                     <driver-name>mysql-connector-java-5.1.6.jar</driver-name>
-                    <connection-url>jdbc:mysql://localhost:3306/playlist?useSSL=false</connection-url>
+                    <connection-url>jdbc:mysql://localhost:3306/playlist?useSSL=false&amp;characterEncoding=utf8</connection-url>
                     <user-name>root</user-name>
                     <password>Losen123</password>
                   </properties>
