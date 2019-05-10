@@ -14,8 +14,13 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.47</version>
+      <version>5.1.6</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>2.0.1</version>
     </dependency>
   </dependencies>
   <build>
@@ -48,7 +53,7 @@
             <configuration>
               <groupId>mysql</groupId>
               <artifactId>mysql-connector-java</artifactId>
-              <name>mysql-connector-java-5.1.47.jar</name>
+              <name>mysql-connector-java-5.1.6.jar</name>
             </configuration>
           </execution>
           <execution>
@@ -64,8 +69,8 @@
                   <properties>
                     <jndi-name>java:/playlist</jndi-name>
                     <enabled>true</enabled>
-                    <driver-name>mysql-connector-java-5.1.47.jar</driver-name>
-                    <connection-url>jdbc:mysql://localhost:3306/playlist</connection-url>
+                    <driver-name>mysql-connector-java-5.1.6.jar</driver-name>
+                    <connection-url>jdbc:mysql://localhost:3306/playlist?useSSL=false</connection-url>
                     <user-name>root</user-name>
                     <password>Losen123</password>
                   </properties>
