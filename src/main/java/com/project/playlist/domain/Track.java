@@ -62,7 +62,7 @@ public class Track implements Serializable{
 	}
 
 	public String toString() {
-		return artist + " " + title;
+		return "Artist: " + artist + ", Title: " + title + ", Genre: " + genre + ", Album: " + album + ", Length: " + length;
 
 	}
 	public String getGenre() {
