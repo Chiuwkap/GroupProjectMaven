@@ -24,9 +24,9 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 		return dao.findAllTracks();
 	}
 
-	// @Override
-	// public List<Track> searchByTitle(String title) {
-	// 	return dao.findByTitle();
-	// }
+	@Override
+	public List<Track> searchByTitle(String title) {
+		return dao.findByTitle(title);
+	}
 
 }

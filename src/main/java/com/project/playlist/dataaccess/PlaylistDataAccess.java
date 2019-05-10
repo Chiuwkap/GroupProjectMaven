@@ -10,5 +10,5 @@ import com.project.playlist.domain.Track;
 public interface PlaylistDataAccess {
 	public void insert(Track track);
 	public List<Track> findAllTracks();
-	// public List<Track> findByTitle(String title);
+	public List<Track> findByTitle(String title);
 }

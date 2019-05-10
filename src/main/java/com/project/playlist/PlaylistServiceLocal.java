@@ -11,7 +11,6 @@ public interface PlaylistServiceLocal {
 	public void registerTrack(Track track);
 
 	public List<Track> getAllTracks();
-
-	// public List<Track> searchByTitle(String title?);
+	public List<Track> searchByTitle(String title);
 
 }
