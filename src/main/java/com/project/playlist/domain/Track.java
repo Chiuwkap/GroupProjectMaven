@@ -29,7 +29,7 @@ public class Track implements Serializable{
 	public Track(String artist, String title, String genre, String album, String length) {
 		this.artist = artist;
 		this.title = title;
-		this.setGenre(genre);
+		this.genre = genre;
 		this.album = album;
 		this.length = length;
 		
