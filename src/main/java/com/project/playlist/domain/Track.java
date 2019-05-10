@@ -2,18 +2,16 @@ package com.project.playlist.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Track")
 public class Track implements Serializable{
 
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
 	@Column
 	private String artist;
 	@Column
@@ -24,7 +22,7 @@ public class Track implements Serializable{
 	private String album;
 	@Column
 	private String length;
-	
+
 	public Track() {}
 	public Track(String artist, String title, String genre, String album, String length) {
 		this.artist = artist;
@@ -32,7 +30,7 @@ public class Track implements Serializable{
 		this.genre = genre;
 		this.album = album;
 		this.length = length;
-		
+
 	}
 
 	public String getAlbum() {
@@ -62,10 +60,10 @@ public class Track implements Serializable{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public String toString() {
 		return artist + " " + title;
-		
+
 	}
 	public String getGenre() {
 		return genre;
@@ -73,5 +71,5 @@ public class Track implements Serializable{
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	
+
 }
