@@ -20,7 +20,7 @@ public class PlaylistProduction implements PlaylistDataAccess {
 
 	@Override
 	public List<Track> findAllTracks() {
-		Query q = manager.createQuery("SELECT track FROM Track track;");
+		Query q = manager.createQuery("SELECT track FROM Track track");
 		List<Track> tracks = q.getResultList();
 
 		return tracks;
