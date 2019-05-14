@@ -25,6 +25,18 @@ public class PlaylistProduction implements PlaylistDataAccess {
 	}
 	
 	@Override
+	public void updateAll(int id, String[] trackValues) {
+		Track track = manager.find(Track.class, id);
+//		artist, title, genre, album, length
+		track.setArtist(trackValues[0]);
+		track.setTitle(trackValues[1]);
+		track.setGenre(trackValues[2]);
+		track.setAlbum(trackValues[3]);
+		track.setLength(trackValues[4]);
+		manager.persist(track);
+	}
+	
+	@Override
 	public void updateTitle(int id, String title) {
 		Track track = manager.find(Track.class, id);
 		track.setTitle(title);
