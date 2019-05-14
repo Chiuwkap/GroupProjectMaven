@@ -12,5 +12,5 @@ public interface PlaylistServiceLocal {
 	public List<Track> getAllTracks();
 	public List<Track> searchByTitle(String title);
 	public void deleteTrack(int id);
-
+	public void changeTitle(int id, String title);
 }

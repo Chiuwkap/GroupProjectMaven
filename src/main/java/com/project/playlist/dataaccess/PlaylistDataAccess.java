@@ -12,4 +12,5 @@ public interface PlaylistDataAccess {
 	public List<Track> findAllTracks();
 	public List<Track> findByTitle(String title);
 	public void removeTrack(int id);
+	public void updateTitle(int id, String title);
 }

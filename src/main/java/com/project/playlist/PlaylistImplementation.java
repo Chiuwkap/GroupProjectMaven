@@ -34,4 +34,9 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 		dao.removeTrack(id);
 	}
 
+	@Override
+	public void changeTitle(int id, String title) {
+		dao.updateTitle(id, title);
+	}
+
 }

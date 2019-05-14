@@ -38,7 +38,13 @@ public class PlaylistProduction implements PlaylistDataAccess {
 	public void removeTrack(int id) {
 		Track track = manager.find(Track.class, id);
 		manager.remove(track);
-		
+	}
+
+	@Override
+	public void updateTitle(int id, String title) {
+		Track track = manager.find(Track.class, id);
+		track.setTitle(title);
+		manager.persist(track);
 	}
 
 }
