@@ -14,4 +14,6 @@ public interface PlaylistServiceLocal {
 	public void changeTitle(int id, String title);
 	public List<Track> getAllTracks();
 	public List<Track> searchByTitle(String title);
+	public List<Track> searchByArtist(String artist);
+	public List<Track> searchByAlbum(String album);
 }

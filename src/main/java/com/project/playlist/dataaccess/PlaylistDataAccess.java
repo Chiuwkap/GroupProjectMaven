@@ -14,4 +14,6 @@ public interface PlaylistDataAccess {
 	public void updateTitle(int id, String title);
 	public List<Track> findAllTracks();
 	public List<Track> findByTitle(String title);
+	public List<Track> findByArtist(String artist);
+	public List<Track> findByAlbum(String album);
 }

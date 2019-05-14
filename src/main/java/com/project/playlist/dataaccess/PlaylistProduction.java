@@ -59,5 +59,21 @@ public class PlaylistProduction implements PlaylistDataAccess {
 		return tracks;
 	}
 
+	@Override
+	public List<Track> findByArtist(String artist) {
+		Query q = manager.createQuery("select track from Track track where artist= :artist");
+		q.setParameter("artist", artist);
+		List<Track> tracks = q.getResultList();
+		return tracks;
+	}
+
+	@Override
+	public List<Track> findByAlbum(String album) {
+		Query q = manager.createQuery("select track from Track track where album= :album");
+		q.setParameter("album", album);
+		List<Track> tracks = q.getResultList();
+		return tracks;
+	}
+
 
 }

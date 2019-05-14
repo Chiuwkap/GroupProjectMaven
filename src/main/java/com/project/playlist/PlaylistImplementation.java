@@ -44,5 +44,15 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 		return dao.findByTitle(title);
 	}
 
+	@Override
+	public List<Track> searchByArtist(String artist) {
+		return dao.findByArtist(artist);
+	}
+
+	@Override
+	public List<Track> searchByAlbum(String album) {
+		return dao.findByAlbum(album);
+	}
+
 
 }
