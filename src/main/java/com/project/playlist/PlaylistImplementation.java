@@ -20,6 +20,16 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 	}
 
 	@Override
+	public void deleteTrack(int id) {
+		dao.removeTrack(id);
+	}
+	
+	@Override
+	public void changeTitle(int id, String title) {
+		dao.updateTitle(id, title);
+	}
+	
+	@Override
 	public List<Track> getAllTracks() {
 		return dao.findAllTracks();
 	}
@@ -29,14 +39,5 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 		return dao.findByTitle(title);
 	}
 
-	@Override
-	public void deleteTrack(int id) {
-		dao.removeTrack(id);
-	}
-
-	@Override
-	public void changeTitle(int id, String title) {
-		dao.updateTitle(id, title);
-	}
 
 }
