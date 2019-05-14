@@ -53,8 +53,8 @@ public class PlaylistProduction implements PlaylistDataAccess {
 
 	@Override
 	public List<Track> findByTitle(String title) {
-		Query q = manager.createQuery("select track from Track track where title= :title");
-		q.setParameter("title", title);
+		Query q = manager.createQuery("select track from Track track where title like :title");
+		q.setParameter("title", "%" + title + "%");
 		List<Track> tracks = q.getResultList();
 		return tracks;
 	}
@@ -62,7 +62,7 @@ public class PlaylistProduction implements PlaylistDataAccess {
 	@Override
 	public List<Track> findByArtist(String artist) {
 		Query q = manager.createQuery("select track from Track track where artist= :artist");
-		q.setParameter("artist", artist);
+		q.setParameter("artist", "%" + artist + "%");
 		List<Track> tracks = q.getResultList();
 		return tracks;
 	}
@@ -70,7 +70,7 @@ public class PlaylistProduction implements PlaylistDataAccess {
 	@Override
 	public List<Track> findByAlbum(String album) {
 		Query q = manager.createQuery("select track from Track track where album= :album");
-		q.setParameter("album", album);
+		q.setParameter("album", "%" + album+ "%");
 		List<Track> tracks = q.getResultList();
 		return tracks;
 	}
