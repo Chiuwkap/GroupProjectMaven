@@ -34,11 +34,11 @@ public class PlaylistProduction implements PlaylistDataAccess {
 		return tracks;
 	}
 
-	// @Override
-	// public List<Track> findByTitle(String title) {
-	// 	Query q = manager.createQuery("SELECT track FROM Track track WHERE title = :title;");
-	// 	q.setParameter("title", title);
-	// 	return q.getResultList();
-	// }
+	@Override
+	public void removeTrack(int id) {
+		Track track = manager.find(Track.class, id);
+		manager.remove(track);
+		
+	}
 
 }

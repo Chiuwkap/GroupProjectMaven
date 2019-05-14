@@ -29,4 +29,9 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 		return dao.findByTitle(title);
 	}
 
+	@Override
+	public void deleteTrack(int id) {
+		dao.removeTrack(id);
+	}
+
 }

@@ -11,4 +11,5 @@ public interface PlaylistDataAccess {
 	public void insert(Track track);
 	public List<Track> findAllTracks();
 	public List<Track> findByTitle(String title);
+	public void removeTrack(int id);
 }
