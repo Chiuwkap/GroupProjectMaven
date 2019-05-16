@@ -25,13 +25,23 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 	}
 	
 	@Override
-	public void changeAll(int id, String[] trackValues) {
+	public void changeTrack(int id, String[] trackValues) {
 		dao.updateTrack(id, trackValues);
 	}
 	
 	@Override
 	public void changeTitle(int id, String title) {
 		dao.updateTitle(id, title);
+	}
+	
+	@Override
+	public void changeArtist(int id, String artist) {
+		dao.updateArtist(id, artist);
+	}
+
+	@Override
+	public void changeAlbum(int id, String album) {
+		dao.updateAlbum(id, album);
 	}
 	
 	@Override
@@ -53,6 +63,4 @@ public class PlaylistImplementation implements PlaylistService, PlaylistServiceL
 	public List<Track> searchByAlbum(String album) {
 		return dao.findByAlbum(album);
 	}
-
-
 }
