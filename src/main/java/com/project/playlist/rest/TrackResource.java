@@ -11,6 +11,8 @@ import com.project.playlist.domain.Track;
 
 @Stateless
 @Path("/")
+@Consumes({"application/JSON"})
+@Produces({"application/JSON"})
 public class TrackResource {
 
   @Inject
@@ -81,7 +83,7 @@ public class TrackResource {
   }
 
   @GET
-  @Path("/search/{album}")
+  @Path("/search")
   public List<Track> searchByAlbum(@QueryParam("album") String album) {
 
     return service.searchByAlbum(album);
