@@ -68,24 +68,24 @@ public class PlaylistProduction implements PlaylistDataAccess {
 
 	@Override
 	public List<Track> findByTitle(String title) {
-		Query q = manager.createQuery("select track from Track track where title like :title");
-		q.setParameter("title", "%" + title + "%");
+		Query q = manager.createQuery("select track from Track track where title like lower(:title)");
+		q.setParameter("title", "%" + title.toLowerCase() + "%");
 		List<Track> tracks = q.getResultList();
 		return tracks;
 	}
 
 	@Override
 	public List<Track> findByArtist(String artist) {
-		Query q = manager.createQuery("select track from Track track where artist like :artist");
-		q.setParameter("artist", "%" + artist + "%");
+		Query q = manager.createQuery("select track from Track track where artist like lower(:artist)");
+		q.setParameter("artist", "%" + artist.toLowerCase() + "%");
 		List<Track> tracks = q.getResultList();
 		return tracks;
 	}
 
 	@Override
 	public List<Track> findByAlbum(String album) {
-		Query q = manager.createQuery("select track from Track track where album like :album");
-		q.setParameter("album", "%" + album+ "%");
+		Query q = manager.createQuery("select track from Track track where album like lower(:album)");
+		q.setParameter("album", "%" + album.toLowerCase() + "%");
 		List<Track> tracks = q.getResultList();
 		return tracks;
 	}
