@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
@@ -19,6 +19,8 @@ import com.project.playlist.domain.Track;
 
 @Stateless
 @Path("/")
+@Consumes({"application/JSON"})
+@Produces({"application/JSON"})
 public class TrackResource {
 
   @Inject
@@ -74,30 +76,6 @@ public class TrackResource {
     return service.getAllTracks();
   }
 
-//  @GET
-//  @Path("/searchtitle")
-//  @Produces({"application/JSON"})
-//  public List<Track> searchByTitle(@QueryParam("title") String title) {
-//
-//    return service.searchByTitle(title);
-//  }
-//
-//  @GET
-//  @Path("/searchartist")
-//  @Produces({"application/JSON"})
-//  public List<Track> searchByArtist(@QueryParam("artist") String artist) {
-//
-//    return service.searchByArtist(artist);
-//  }
-//
-//  @GET
-//  @Path("/searchalbum")
-//  @Produces({"application/JSON"})
-//  public List<Track> searchByAlbum(@QueryParam("album") String album) {
-//
-//    return service.searchByAlbum(album);
-//  }
-  
   @GET
   @Path("/search")
   @Produces({"application/JSON"})
@@ -113,5 +91,6 @@ public class TrackResource {
 		  return service.searchByAlbum(album);
 	  }
 	return null;
+
   }
 }
