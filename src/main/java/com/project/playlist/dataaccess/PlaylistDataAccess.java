@@ -10,7 +10,7 @@ import com.project.playlist.domain.Track;
 public interface PlaylistDataAccess {
 	public void insert(Track track);
 	public void removeTrack(int id);
-	public void updateAll(int id, String[] trackValues);
+	public void updateTrack(int id, String[] trackValues);
 	public void updateTitle(int id, String title);
 	public void updateArtist(int id, String artist);
 	public void updateAlbum(int id, String album);
