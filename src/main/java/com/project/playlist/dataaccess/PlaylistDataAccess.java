@@ -12,6 +12,8 @@ public interface PlaylistDataAccess {
 	public void removeTrack(int id);
 	public void updateAll(int id, String[] trackValues);
 	public void updateTitle(int id, String title);
+	public void updateArtist(int id, String artist);
+	public void updateAlbum(int id, String album);
 	public List<Track> findAllTracks();
 	public List<Track> findByTitle(String title);
 	public List<Track> findByArtist(String artist);
