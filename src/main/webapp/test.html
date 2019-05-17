@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>♫ Music Database ♫</h1>
+
+<h3>Add a song</h3>
+<form action="playlist/a/add" method="post">
+    <p>
+        Title : <input type="text" name="title" />
+    </p>
+    <p>
+        Artist : <input type="text" name="artist" />
+    </p>
+    <p>
+        Album : <input type="text" name="album" />
+    </p>
+    <p>
+        Genre : <input type="text" name="genre" />
+    </p>
+    <p>
+        Length : <input type="text" name="length" />
+    </p>
+    <input type="submit" value="Add Track" />
+</form>
+
+<h3>Show all tracks on the database</h3>
+<form action="playlist/a/all-track" method="get">
+    <input type="submit" value="Show now" />
+</form>
+
+<form action="playlist/a/search" method="get">
+    <p>Title: <input type="text" name="title" /></p>
+    <input type="submit" value="Search" />
+</form>
+
+</body>
+</html>
