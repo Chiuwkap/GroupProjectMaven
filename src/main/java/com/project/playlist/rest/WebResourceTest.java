@@ -57,32 +57,32 @@ public class WebResourceTest {
         service.changeTrack(id, trackValues);
     }
 
-    @POST
-    @Path("/update/{id}")
-    @Consumes({"application/JSON"})
-    @Produces({"application/JSON"})
-    public void changeTitle(@PathParam("id") int id, String title) {
-
-        service.changeTitle(id, title);
-    }
-
-    @POST
-    @Path("/update/{id}")
-    @Consumes({"application/JSON"})
-    @Produces({"application/JSON"})
-    public void changeArtist(@PathParam("id") int id, String artist) {
-
-        service.changeArtist(id, artist);
-    }
-
-    @POST
-    @Path("/update/{id}")
-    @Consumes({"application/JSON"})
-    @Produces({"application/JSON"})
-    public void changeAlbum(@PathParam("id") int id, String album) {
-
-        service.changeAlbum(id, album);
-    }
+//    @POST
+//    @Path("/update/{id}")
+//    @Consumes({"application/JSON"})
+//    @Produces({"application/JSON"})
+//    public void changeTitle(@PathParam("id") int id, String title) {
+//
+//        service.changeTitle(id, title);
+//    }
+//
+//    @POST
+//    @Path("/update/{id}")
+//    @Consumes({"application/JSON"})
+//    @Produces({"application/JSON"})
+//    public void changeArtist(@PathParam("id") int id, String artist) {
+//
+//        service.changeArtist(id, artist);
+//    }
+//
+//    @POST
+//    @Path("/update/{id}")
+//    @Consumes({"application/JSON"})
+//    @Produces({"application/JSON"})
+//    public void changeAlbum(@PathParam("id") int id, String album) {
+//
+//        service.changeAlbum(id, album);
+//    }
 
     @GET
     @Path("/all-track")
@@ -93,7 +93,11 @@ public class WebResourceTest {
 //    }
     public Response getAllTracks() {
         List<Track> list = service.getAllTracks(); // for loop?
-        return Response.status(202).entity(list).build();
+        String output = "";
+        for (Track track : list) {
+        	output += track.toString();
+        }
+        return Response.status(202).entity(output).build();
     }
 
     @GET
