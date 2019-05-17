@@ -132,7 +132,7 @@ public class WebResourceTest {
         } else if (!(album.isEmpty())) {
             list = service.searchByAlbum(album);
         }
-        return Response.status(202).entity("Your search result: \n" + list).build();
+        return Response.status(202).entity("Your search result: \n" + list + "\n ").build();
     }
 
 }
