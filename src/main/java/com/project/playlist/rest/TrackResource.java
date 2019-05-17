@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -39,34 +40,28 @@ public class TrackResource {
 
     service.deleteTrack(id);
   }
-
-  // TODO: fixa update-metoderna
-  @POST
-  @Path("/update/{id}")
-  public void changeTrack(@PathParam("id") int id, String[] trackValues) {
-
-    service.changeTrack(id, trackValues);
+  
+  @PUT
+  @Consumes({"application/JSON"})
+  @Path("/updatetrack/{id}")
+  public void changeTrack(@PathParam("id") int id, String[] input) {
+	  service.changeTrack(id, input);
   }
-
-  @POST
-  @Path("/update/{id}")
-  public void changeTitle(@PathParam("id") int id, String title) {
-
-    service.changeTitle(id, title);
-  }
-
-  @POST
-  @Path("/update/{id}")
-  public void changeArtist(@PathParam("id") int id, String artist) {
-
-    service.changeArtist(id, artist);
-  }
-
-  @POST
-  @Path("/update/{id}")
-  public void changeAlbum(@PathParam("id") int id, String album) {
-
-    service.changeAlbum(id, album);
+  
+  
+  @PUT
+  @Consumes({"application/JSON"})
+  @Path("/update/{id}/{part}")
+  public void change(@PathParam("id") int id, @PathParam("part") String part, String input) {
+	  
+	  if (part.equals("title")) {
+		  service.changeTitle(id, input);
+	  } else if (part.equals("artist")) {
+		  service.changeArtist(id, input);
+	  } else if (part.equals("album")) {
+		  service.changeAlbum(id, input);
+	  }
+	  
   }
 
   @GET
