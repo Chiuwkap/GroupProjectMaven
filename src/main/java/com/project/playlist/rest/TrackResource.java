@@ -27,7 +27,7 @@ public class TrackResource {
   private PlaylistServiceLocal service;
 
   @POST
-  @Path("/add/{}")
+  @Path("/add")
   public void registerTrack(Track track) {
 
     service.registerTrack(track);
@@ -40,6 +40,7 @@ public class TrackResource {
     service.deleteTrack(id);
   }
 
+  // TODO: fixa update-metoderna
   @POST
   @Path("/update/{id}")
   public void changeTrack(@PathParam("id") int id, String[] trackValues) {
