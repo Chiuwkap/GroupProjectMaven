@@ -1,5 +1,6 @@
 package com.project.playlist.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -30,7 +31,7 @@ public class WebResourceTest {
 //    }
     public Response registerTrack(@FormParam("title") String title, @FormParam("artist") String artist,
                                   @DefaultValue("") @FormParam("album") String album,
-                                  @DefaultValue("")@FormParam("genre") String genre,
+                                  @DefaultValue("") @FormParam("genre") String genre,
                                   @DefaultValue("") @FormParam("length") String length) {
         Track t1 = new Track(artist, title, genre, album, length);
         service.registerTrack(t1);
@@ -118,12 +119,19 @@ public class WebResourceTest {
 //
 //    }
     @Produces({"text/plain"})
-    public Response search(@DefaultValue("") @FormParam("title") String title,
-                           @DefaultValue("")@FormParam("artist") String artist,
-                           @DefaultValue("") @FormParam("album") String album,
-                           @DefaultValue("")@FormParam("genre") String genre,
-                           @DefaultValue("") @FormParam("length") String length) {
-        return Response.status(202).entity("Your search result: ").build();
+    public Response search(@QueryParam("title") String title,
+                           @QueryParam("artist") String artist,
+                           @QueryParam("album") String album/*,
+                           @DefaultValue("")@FormParam("genre") String genre*/) {
+        List<Track> list = new ArrayList<>();
+        if(!(title.isEmpty())) {
+            list = service.searchByTitle(title);
+        } else if (!(artist.isEmpty())) {
+            list = service.searchByArtist(artist);
+        } else if (!(album.isEmpty())) {
+            list = service.searchByAlbum(album);
+        }
+        return Response.status(202).entity("Your search result: \n" + list + "\n ").build();
     }
 
 }
