@@ -1,5 +1,6 @@
 package com.project.playlist.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -13,6 +14,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.project.playlist.PlaylistServiceLocal;
@@ -29,64 +31,72 @@ public class TrackResource {
 
   @POST
   @Path("/add")
-  public void registerTrack(Track track) {
+  public Response registerTrack(Track track) {
 
     service.registerTrack(track);
+    return Response.status(202).entity("title: " + track.getTitle() + " artist: " + track.getArtist()).build();
   }
 
   @DELETE
   @Path("/delete/{id}")
-  public void deleteTrack(@PathParam("id") int id) {
+  public Response deleteTrack(@PathParam("id") int id) {
 
     service.deleteTrack(id);
+    return Response.status(202).entity("Track is deleted (ID: " + id + ")").build();
   }
   
   @PUT
   @Consumes({"application/JSON"})
   @Path("/updatetrack/{id}")
-  public void changeTrack(@PathParam("id") int id, String[] input) {
+  public Response changeTrack(@PathParam("id") int id, String[] input) {
 	  service.changeTrack(id, input);
+	  return Response.status(202).entity("Track is updated (ID: " + id + ")").build();
   }
   
   
   @PUT
   @Consumes({"application/JSON"})
   @Path("/update/{id}/{part}")
-  public void change(@PathParam("id") int id, @PathParam("part") String part, String input) {
+  public Response change(@PathParam("id") int id, @PathParam("part") String part, String input) {
 	  
 	  if (part.equals("title")) {
 		  service.changeTitle(id, input);
+		  return Response.status(202).entity("Updated title").build();
 	  } else if (part.equals("artist")) {
 		  service.changeArtist(id, input);
+		  return Response.status(202).entity("Updated artist").build();
 	  } else if (part.equals("album")) {
 		  service.changeAlbum(id, input);
+		  return Response.status(202).entity("Updated album").build();
 	  }
-	  
+	  return Response.status(404).entity("Not found").build();
   }
 
   @GET
   @Path("/all-track")
   @Produces({"application/JSON"})
-  public List<Track> getAllTracks() {
+  public Response getAllTracks() {
 
-    return service.getAllTracks();
+    List<Track> list = service.getAllTracks(); // for loop?
+    return Response.status(202).entity(list).build();
   }
 
   @GET
   @Path("/search")
   @Produces({"application/JSON"})
-  public List<Track> search(@Context UriInfo info) {
+  public Response search(@Context UriInfo info) {
 	  String title = info.getQueryParameters().getFirst("title");
 	  String artist = info.getQueryParameters().getFirst("artist");
 	  String album = info.getQueryParameters().getFirst("album");
+	  List<Track> list = new ArrayList<>();
 	  if (title != null) {
-		  return service.searchByTitle(title);
+		  list = service.searchByTitle(title);
 	  } else if (artist != null) {
-		  return service.searchByArtist(artist);
+		  list = service.searchByArtist(artist);
 	  } else if (album != null) {
-		  return service.searchByAlbum(album);
+		  list = service.searchByAlbum(album);
 	  }
-	return null;
+	return Response.status(202).entity(list).build();
 
   }
 }
