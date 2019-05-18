@@ -13,8 +13,6 @@ import com.project.playlist.domain.Track;
 
 @Stateless
 @Path("/a")
-@Consumes({"application/JSON"})
-@Produces({"application/JSON"})
 public class WebResourceTest {
 
     @Inject
@@ -25,10 +23,6 @@ public class WebResourceTest {
     @Path("/add")
     @Consumes({"application/x-www-form-urlencoded"})
     @Produces({"text/plain"})
-//    public void registerTrack(Track track) {
-//
-//        service.registerTrack(track);
-//    }
     public Response registerTrack(@FormParam("title") String title, @FormParam("artist") String artist,
                                   @DefaultValue("") @FormParam("album") String album,
                                   @DefaultValue("") @FormParam("genre") String genre,
@@ -41,22 +35,21 @@ public class WebResourceTest {
     @POST
     @Path("/delete")
     @Consumes({"application/x-www-form-urlencoded"})
-//    @Produces({"application/JSON"})
     @Produces({"text/plain"})
     public Response deleteTrack(@FormParam("id") int id) {
 
         service.deleteTrack(id);
-        return Response.status(202).entity("Track is deleted (ID: " + id).build();
+        return Response.status(202).entity("Track is deleted (ID: " + id + ")").build();
     }
 
     @POST
     @Consumes({"application/x-www-form-urlencoded"})
     @Produces({"text/plain"})
     @Path("/updatetrack")
-    public Response changeTrack(@FormParam("id") int id, @FormParam("input") String[] input) {
-  	  service.changeTrack(id, input);
-  	  return Response.status(202).entity("Updated track").build();
-    }
+	public Response changeTrack(@FormParam("id") int id, @FormParam("input") String[] input) {
+		service.changeTrack(id, input);
+		return Response.status(202).entity("Track is updated (ID: " + id + ")").build();
+	}
 
 //    @POST
 //    @Path("/updatetitle")
@@ -91,10 +84,6 @@ public class WebResourceTest {
     @GET
     @Path("/all-track")
     @Produces({"text/plain"})
-//    @Produces({"application/JSON"})
-//    public List<Track> getAllTracks() {
-//        return service.getAllTracks();
-//    }
     public Response getAllTracks() {
         List<Track> list = service.getAllTracks(); // for loop?
         String output = "";
@@ -107,26 +96,10 @@ public class WebResourceTest {
     @GET
     @Consumes({"application/x-www-form-urlencoded"})
     @Path("/search")
-//    @Produces({"application/JSON"})
-//    public List<Track> search(@Context UriInfo info) {
-//        String title = info.getQueryParameters().getFirst("title");
-//        String artist = info.getQueryParameters().getFirst("artist");
-//        String album = info.getQueryParameters().getFirst("album");
-//        if (title != null) {
-//            return service.searchByTitle(title);
-//        } else if (artist != null) {
-//            return service.searchByArtist(artist);
-//        } else if (album != null) {
-//            return service.searchByAlbum(album);
-//        }
-//        return null;
-//
-//    }
     @Produces({"text/plain"})
     public Response search(@QueryParam("title") String title,
                            @QueryParam("artist") String artist,
-                           @QueryParam("album") String album/*,
-                           @DefaultValue("")@FormParam("genre") String genre*/) {
+                           @QueryParam("album") String album) {
         List<Track> list = new ArrayList<>();
         if(!(title.isEmpty())) {
             list = service.searchByTitle(title);
