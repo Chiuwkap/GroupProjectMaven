@@ -1,101 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./admin.css">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./admin.css">
+  <title>Title</title>
 </head>
+
 <body>
 
-<h1>Music Database</h1>
+  <h1>Music Database</h1>
 
-<h3>♫ Add a track</h3>
-<form id="form1" action="playlist/a/add" method="post">
+  <h3>♫ Add a track</h3>
+  <form id="form1" action="playlist/a/add" method="post">
     <p>
-        Title : <input type="text" name="title" />
+      Title : <input type="text" name="title" />
     </p>
     <p>
-        Artist : <input type="text" name="artist" />
+      Artist : <input type="text" name="artist" />
     </p>
     <p>
-        Album : <input type="text" name="album" />
+      Album : <input type="text" name="album" />
     </p>
     <p>
-        Genre : <input type="text" name="genre" />
+      Genre : <input type="text" name="genre" />
     </p>
     <p>
-        Length : <input type="text" name="length" />
+      Length : <input type="text" name="length" />
     </p>
     <input type="submit" value="Add Track" />
-</form>
+  </form>
 
-<h3>♫ Show all tracks on the database</h3>
-<form action="playlist/a/all-track" method="get">
+  <h3>♫ Show all tracks on the database</h3>
+  <form action="playlist/a/all-track" method="get">
     <input type="submit" value="Show now" />
-</form>
+  </form>
 
-<h3>♫ Search track</h3>
-<form action="playlist/a/search" method="get">
+  <h3>♫ Search track</h3>
+  <form action="playlist/a/search" method="get">
     <p>
-        Title: <input type="text" name="title" />
+      Title: <input type="text" name="title" />
     </p>
     <p>
-        Artist: <input type="text" name="artist" />
+      Artist: <input type="text" name="artist" />
     </p>
     <p>
-        Album: <input type="text" name="album" />
+      Album: <input type="text" name="album" />
     </p>
 
     <input type="submit" value="Search" />
-</form>
+  </form>
 
-<h3>Update whole track</h3>
-<form action="playlist/a/updatetrack" method="post">
-  <p>
+  <h3>♫ Update whole track</h3>
+  <form action="playlist/a/updatetrack" method="post">
+    <p>
       ID: <input type="text" name="id" />
-  </p>
-  <p>
-    Artist : <input type="text" name="input" />
-  </p>
-  <p>
-    Title : <input type="text" name="input" />
-  </p>
-  <p>
-    Genre : <input type="text" name="input" />
-  </p>
-  <p>
-    Album : <input type="text" name="input" />
-  </p>
-  <p>
-    Length : <input type="text" name="input" />
-  </p>
-  <input type="submit" value="Update Track" />
-</form>
+    </p>
+    <p>
+      Artist : <input type="text" name="input" />
+    </p>
+    <p>
+      Title : <input type="text" name="input" />
+    </p>
+    <p>
+      Genre : <input type="text" name="input" />
+    </p>
+    <p>
+      Album : <input type="text" name="input" />
+    </p>
+    <p>
+      Length : <input type="text" name="input" />
+    </p>
+    <input type="submit" value="Update Track" />
+  </form>
 
-<h3>Update part of track (choose one)</h3>
-<form action="playlist/a/update" method="post">
-  <p>
+  <h3>♫ Update part of track (choose one)</h3>
+  <form action="playlist/a/update" method="post">
+    <p>
       ID: <input type="text" name="id" />
-  </p>
-  <p>
-    Artist : <input type="text" name="input" />
-  </p>
-  <p>
-    Title : <input type="text" name="input" />
-  </p>
-  <p>
-    Album : <input type="text" name="input" />
-  </p>
-  <input type="submit" value="Update Track" />
-</form>
+    </p>
+    <p>
+      Artist : <input type="text" name="input" />
+    </p>
+    <p>
+      Title : <input type="text" name="input" />
+    </p>
+    <p>
+      Album : <input type="text" name="input" />
+    </p>
+    <input type="submit" value="Update Track" />
+  </form>
 
-<h3>Delete track</h3>
-<form action="playlist/a/delete" method="post">
-  <p>
-        ID: <input type="text" name="id" />
-
-  </p>
-   <input type="submit" value="Delete track" />
-</form>
+  <h3>♫ Delete track</h3>
+  <form action="playlist/a/delete" method="post">
+    <p>
+      ID: <input type="text" name="id" />
+    </p>
+    <input type="submit" value="Delete track" />
+  </form>
 </body>
+
 </html>
