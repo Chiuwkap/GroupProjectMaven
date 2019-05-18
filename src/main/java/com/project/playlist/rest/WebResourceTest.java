@@ -71,26 +71,6 @@ public class WebResourceTest {
     	}
 		return Response.status(404).entity("Not found").build();
     }
-//
-//    @POST
-//    @Path("/updateartist")
-//    @Consumes({"application/x-www-form-urlencoded"})
-//    @Produces({"text/plain"})
-//    public Response changeArtist(@PathParam("id") int id, String artist) {
-//
-//        service.changeArtist(id, artist);
-//        return Response.status(202).entity("Updated artist").build();
-//    }
-//
-//    @POST
-//    @Path("/updatealbum")
-//    @Consumes({"application/x-www-form-urlencoded"})
-//    @Produces({"text/plain"})
-//    public Response changeAlbum(@PathParam("id") int id, String album) {
-//
-//        service.changeAlbum(id, album);
-//        return Response.status(202).entity("Updated album").build();
-//    }
 
     @GET
     @Path("/all-track")
