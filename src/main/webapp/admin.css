@@ -26,6 +26,7 @@ h3{
 input[type=text] {
   width: 10%;
   text-align: center;
+  color: hotpink;
 }
 
 input[type=text]:focus {
