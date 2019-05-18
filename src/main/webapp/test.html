@@ -1,101 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./admin.css">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./admin.css">
+  <title>Title</title>
 </head>
+
 <body>
 
-<h1>Music Database</h1>
+  <h1>Music Database</h1>
 
-<h3>♫ Add a track</h3>
-<form id="form1" action="playlist/a/add" method="post">
+  <h3>♫ Add a track</h3>
+  <form id="form1" action="playlist/a/add" method="post">
     <p>
-        Title : 
+      Title:
     </p>
-   	<input type="text" name="title" />
+    <input type="text" name="title" />
     <p>
-        Artist :
+      Artist:
     </p>
-     <input type="text" name="artist" />
+    <input type="text" name="artist" />
     <p>
-        Album : 
+      Album:
     </p>
     <input type="text" name="album" />
     <p>
-        Genre :
+      Genre:
     </p>
-     <input type="text" name="genre" />
+    <input type="text" name="genre" />
     <p>
-        Length : 
+      Length:
     </p>
     <input type="text" name="length" />
     <br>
     <input type="submit" value="Add Track" />
-</form>
+    <input type="reset" value="Clear">
+  </form>
 
-<h3>♫ Show all tracks on the database</h3>
-<form action="playlist/a/all-track" method="get">
+  <h3>♫ Show all tracks on the database</h3>
+  <form action="playlist/a/all-track" method="get">
     <input type="submit" value="Show now" />
-</form>
+  </form>
 
-<h3>♫ Search track</h3>
-<form action="playlist/a/search" method="get">
+  <h3>♫ Search track</h3>
+  <form action="playlist/a/search" method="get">
     <p>
-        Title: 
+      Title:
     </p>
     <input type="text" name="title" />
     <p>
-        Artist: 
+      Artist:
     </p>
     <input type="text" name="artist" />
     <p>
-        Album: 
+      Album:
     </p>
     <input type="text" name="album" />
-	<br>
+    <br>
     <input type="submit" value="Search" />
-</form>
+    <input type="reset" value="Clear">
+  </form>
 
-<h3>Update track</h3>
-<form action="playlist/a/updatetrack" method="post">
-  <p>
-      ID: 
-  </p>
-  <input type="text" name="id" />
-  <p>
-    Artist : 
-  </p>
-  <input type="text" name="input" />
-  <p>
-    Title : 
-  </p>
-  <input type="text" name="input" />
-  <p>
-    Genre : 
-  </p>
-  <input type="text" name="input" />
-  <p>
-    Album :
-  </p>
-   <input type="text" name="input" />
-  <p>
-    Length : 
-  </p>
-  <input type="text" name="input" />
-  <br>
-  <input type="submit" value="Update Track" />
-</form>
-<h3>Delete track</h3>
-<form action="playlist/a/delete" method="post">
-  <p>
-        ID: 
-  </p>
-  <input type="text" name="id" />
-  <br>
-   <input type="submit" value="Delete track" />
+  <h3>♫ Update track</h3>
+  <form action="playlist/a/updatetrack" method="post">
+    <p>
+      ID:
+    </p>
+    <input type="text" name="id" />
+    <p>
+      Artist:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      Title:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      Genre:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      Album:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      Length:
+    </p>
+    <input type="text" name="input" />
+    <br>
+    <input type="submit" value="Update Track" />
+    <input type="reset" value="Clear">
+  </form>
+  <h3>♫ Update part of track</h3>
+  <form action="playlist/a/update" method="post">
+    <p>
+      ID:
+    </p>
+    <input type="text" name="id" />
+    <p>
+      Artist:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      Title:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      Album:
+    </p>
+    <input type="text" name="input" />
+    <p>
+      <br>
+      <input type="submit" value="Update Track" />
+      <input type="reset" value="Clear">
+  </form>
+  <h3>♫ Delete track</h3>
+  <form action="playlist/a/delete" method="post">
+    <p>
+      ID:
+    </p>
+    <input type="text" name="id" />
+    <br>
+    <input type="submit" value="Delete track" />
+    <input type="reset" value="Clear">
 
-</form>
+  </form>
 </body>
+
 </html>
