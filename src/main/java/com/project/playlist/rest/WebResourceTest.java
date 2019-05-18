@@ -49,39 +49,43 @@ public class WebResourceTest {
         return Response.status(202).entity("Track is deleted (ID: " + id).build();
     }
 
-    @PUT
-    @Consumes({"application/JSON"})
-    @Path("/updatetrack/{id}")
-    public Response changeTrack(@PathParam("id") int id, String[] input) {
+    @POST
+    @Consumes({"application/x-www-form-urlencoded"})
+    @Produces({"text/plain"})
+    @Path("/updatetrack")
+    public Response changeTrack(@FormParam("id") int id, @FormParam("input") String[] input) {
   	  service.changeTrack(id, input);
   	  return Response.status(202).entity("Updated track").build();
     }
 
 //    @POST
-//    @Path("/update/{id}")
-//    @Consumes({"application/JSON"})
-//    @Produces({"application/JSON"})
-//    public void changeTitle(@PathParam("id") int id, String title) {
+//    @Path("/updatetitle")
+//    @Consumes({"application/x-www-form-urlencoded"})
+//    @Produces({"text/plain"})
+//    public Response changeTitle(@PathParam("id") int id, String title) {
 //
 //        service.changeTitle(id, title);
+//        return Response.status(202).entity("Updated title").build();
 //    }
 //
 //    @POST
-//    @Path("/update/{id}")
-//    @Consumes({"application/JSON"})
-//    @Produces({"application/JSON"})
-//    public void changeArtist(@PathParam("id") int id, String artist) {
+//    @Path("/updateartist")
+//    @Consumes({"application/x-www-form-urlencoded"})
+//    @Produces({"text/plain"})
+//    public Response changeArtist(@PathParam("id") int id, String artist) {
 //
 //        service.changeArtist(id, artist);
+//        return Response.status(202).entity("Updated artist").build();
 //    }
 //
 //    @POST
-//    @Path("/update/{id}")
-//    @Consumes({"application/JSON"})
-//    @Produces({"application/JSON"})
-//    public void changeAlbum(@PathParam("id") int id, String album) {
+//    @Path("/updatealbum")
+//    @Consumes({"application/x-www-form-urlencoded"})
+//    @Produces({"text/plain"})
+//    public Response changeAlbum(@PathParam("id") int id, String album) {
 //
 //        service.changeAlbum(id, album);
+//        return Response.status(202).entity("Updated album").build();
 //    }
 
     @GET
