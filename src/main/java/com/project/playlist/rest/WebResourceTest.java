@@ -38,12 +38,12 @@ public class WebResourceTest {
         return Response.status(202).entity("title: " + title + " artist: " + artist).build();
     }
 
-    @DELETE
-    @Path("/delete/{id}")
-    @Consumes({"application/JSON"})
+    @POST
+    @Path("/delete")
+    @Consumes({"application/x-www-form-urlencoded"})
 //    @Produces({"application/JSON"})
     @Produces({"text/plain"})
-    public Response deleteTrack(@PathParam("id") int id) {
+    public Response deleteTrack(@FormParam("id") int id) {
 
         service.deleteTrack(id);
         return Response.status(202).entity("Track is deleted (ID: " + id).build();
