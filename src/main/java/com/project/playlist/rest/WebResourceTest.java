@@ -51,15 +51,26 @@ public class WebResourceTest {
 		return Response.status(202).entity("Track is updated (ID: " + id + ")").build();
 	}
 
-//    @POST
-//    @Path("/updatetitle")
-//    @Consumes({"application/x-www-form-urlencoded"})
-//    @Produces({"text/plain"})
-//    public Response changeTitle(@PathParam("id") int id, String title) {
-//
-//        service.changeTitle(id, title);
-//        return Response.status(202).entity("Updated title").build();
-//    }
+    @POST
+    @Path("/update")
+    @Consumes({"application/x-www-form-urlencoded"})
+    @Produces({"text/plain"})
+    public Response change(@FormParam("id") int id, @FormParam("input") String[] input) {
+    	for (String s : input) {
+    		System.out.println(s);
+    	}
+		if (!input[0].isEmpty()) {
+			service.changeArtist(id, input[0]);
+			return Response.status(202).entity("Updated artist").build();
+		} else if (!input[1].isEmpty()) {
+    		service.changeTitle(id, input[1]);
+            return Response.status(202).entity("Updated title").build();
+    	} else if (!input[2].isEmpty()) {
+    		service.changeAlbum(id, input[2]);
+            return Response.status(202).entity("Updated album").build();
+    	}
+		return Response.status(404).entity("Not found").build();
+    }
 //
 //    @POST
 //    @Path("/updateartist")
@@ -108,7 +119,11 @@ public class WebResourceTest {
         } else if (!(album.isEmpty())) {
             list = service.searchByAlbum(album);
         }
-        return Response.status(202).entity("Your search result: \n" + list + "\n ").build();
+        String output = "";
+        for (Track track : list) {
+        	output += track.toString();
+        }
+        return Response.status(202).entity("Your search result: \n" + output).build();
     }
 
 }
