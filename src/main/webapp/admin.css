@@ -8,7 +8,10 @@ body {
   background: url("./music.jpg") no-repeat fixed;
   background-size: cover;
 }
-
+p{
+  line-height: 2px;
+  padding: 0px 0px 0px 2px;
+}
 h1 {
   font-family: 'Trocchi', serif;
   font-weight: bolder;
