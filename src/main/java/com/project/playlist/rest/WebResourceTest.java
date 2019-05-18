@@ -38,24 +38,23 @@ public class WebResourceTest {
         return Response.status(202).entity("title: " + title + " artist: " + artist).build();
     }
 
-    @DELETE
-    @Path("/delete/{id}")
-    @Consumes({"application/JSON"})
+    @POST
+    @Path("/delete")
+    @Consumes({"application/x-www-form-urlencoded"})
 //    @Produces({"application/JSON"})
     @Produces({"text/plain"})
-    public Response deleteTrack(@PathParam("id") int id) {
+    public Response deleteTrack(@FormParam("id") int id) {
 
         service.deleteTrack(id);
         return Response.status(202).entity("Track is deleted (ID: " + id).build();
     }
 
-    @POST
-    @Path("/update/{id}")
+    @PUT
     @Consumes({"application/JSON"})
-    @Produces({"application/JSON"})
-    public void changeTrack(@PathParam("id") int id, String[] trackValues) {
-
-        service.changeTrack(id, trackValues);
+    @Path("/updatetrack/{id}")
+    public Response changeTrack(@PathParam("id") int id, String[] input) {
+  	  service.changeTrack(id, input);
+  	  return Response.status(202).entity("Updated track").build();
     }
 
 //    @POST
