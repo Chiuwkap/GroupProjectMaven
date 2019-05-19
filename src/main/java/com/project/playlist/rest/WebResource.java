@@ -13,7 +13,7 @@ import com.project.playlist.domain.Track;
 
 @Stateless
 @Path("/a")
-public class WebResourceTest {
+public class WebResource {
 
     @Inject
     private PlaylistServiceLocal service;
