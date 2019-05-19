@@ -74,20 +74,20 @@ public class WebResource {
 
     @GET
     @Path("/all-track")
-    @Produces({"text/plain"})
+    @Produces({"application/JSON"})
     public Response getAllTracks() {
         List<Track> list = service.getAllTracks(); // for loop?
-        String output = "";
-        for (Track track : list) {
-        	output += track.toString();
-        }
-        return Response.status(202).entity(output).build();
+//        String output = "";
+//        for (Track track : list) {
+//        	output += track.toString();
+//        }
+        return Response.status(202).entity(list).build();
     }
 
     @GET
     @Consumes({"application/x-www-form-urlencoded"})
     @Path("/search")
-    @Produces({"text/plain"})
+    @Produces({"application/JSON"})
     public Response search(@QueryParam("title") String title,
                            @QueryParam("artist") String artist,
                            @QueryParam("album") String album) {
@@ -99,11 +99,11 @@ public class WebResource {
         } else if (!(album.isEmpty())) {
             list = service.searchByAlbum(album);
         }
-        String output = "";
-        for (Track track : list) {
-        	output += track.toString();
-        }
-        return Response.status(202).entity("Your search result: \n" + output).build();
+//        String output = "";
+//        for (Track track : list) {
+//        	output += track.toString();
+//        }
+        return Response.status(202).entity(/*"Your search result: \n" + */list).build();
     }
 
 }
