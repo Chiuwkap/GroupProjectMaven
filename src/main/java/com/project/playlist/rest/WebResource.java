@@ -12,7 +12,7 @@ import com.project.playlist.PlaylistServiceLocal;
 import com.project.playlist.domain.Track;
 
 @Stateless
-@Path("/a")
+@Path("/webservice")
 public class WebResource {
 
     @Inject
@@ -76,11 +76,7 @@ public class WebResource {
     @Path("/all-track")
     @Produces({"application/JSON"})
     public Response getAllTracks() {
-        List<Track> list = service.getAllTracks(); // for loop?
-//        String output = "";
-//        for (Track track : list) {
-//        	output += track.toString();
-//        }
+        List<Track> list = service.getAllTracks();
         return Response.status(202).entity(list).build();
     }
 
@@ -99,11 +95,7 @@ public class WebResource {
         } else if (!(album.isEmpty())) {
             list = service.searchByAlbum(album);
         }
-//        String output = "";
-//        for (Track track : list) {
-//        	output += track.toString();
-//        }
-        return Response.status(202).entity(/*"Your search result: \n" + */list).build();
+        return Response.status(202).entity(list).build();
     }
 
 }
