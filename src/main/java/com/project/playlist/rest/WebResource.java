@@ -29,7 +29,7 @@ public class WebResource {
                                   @DefaultValue("") @FormParam("length") String length) {
         Track t1 = new Track(artist, title, genre, album, length);
         service.registerTrack(t1);
-        return Response.status(202).entity("title: " + title + " artist: " + artist).build();
+        return Response.status(202).entity("Track added\nTitle: " + title + ", Artist: " + artist).build();
     }
 
     @POST
