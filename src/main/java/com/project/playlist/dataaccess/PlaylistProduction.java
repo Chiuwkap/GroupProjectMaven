@@ -65,7 +65,9 @@ public class PlaylistProduction implements PlaylistDataAccess {
 
 		return tracks;
 	}
-
+	
+	
+//	Här används JPQL för att hämta data från databasen och resultatet returneras som en lista
 	@Override
 	public List<Track> findByTitle(String title) {
 		Query q = manager.createQuery("select track from Track track where title like lower(:title)");

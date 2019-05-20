@@ -80,6 +80,10 @@ public class WebResource {
         return Response.status(202).entity(list).build();
     }
 
+//    WebResource använder JAX-RS som REST-implementation
+//    Metoden search() anropar olika metoder beroende på vilket fält
+//    i webbformuläret som har en sträng. Om t. ex. title inte är tom
+//    anropas service.searchByTitle().
     @GET
     @Consumes({"application/x-www-form-urlencoded"})
     @Path("/search")
